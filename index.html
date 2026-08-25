@@ -115,7 +115,7 @@ function genLevel(lv){
 }
 function isSolved(tubes){return tubes.every(tb=>tb.blocks.length===0||(tb.blocks.length===BALLS&&tb.blocks.every(b=>b===tb.blocks[0])));}
 function canMove(from,to){if(from.blocks.length===0||to.blocks.length>=BALLS)return false;if(to.blocks.length===0)return true;return to.blocks[to.blocks.length-1]===from.blocks[from.blocks.length-1];}
-function hasAnyMove(tubes){for(let i=0;i<tubes.length;i++){const from=tubes[i];if(from.blocks.length===0)continue;const fromComplete=from.blocks.length===BALLS&&from.blocks.every(b=>b===from.blocks[0]);if(fromComplete)continue;for(let j=0;j<tubes.length;j++){if(i===j)continue;const to=tubes[j];if(canMove(from,to)){const toComplete=to.blocks.length===BALLS&&to.blocks.every(b=>b===to.blocks[0]);if(!toComplete)return true;}}}return false;}
+function hasAnyMove(tubes){const n=tubes.length;for(let i=0;i<n;i++){const from=tubes[i];if(from.blocks.length===0)continue;if(from.blocks.length===BALLS&&from.blocks.every(b=>b===from.blocks[0]))continue;const top=from.blocks[from.blocks.length-1];for(let j=0;j<n;j++){if(i===j)continue;const to=tubes[j];if(to.blocks.length>=BALLS)continue;if(to.blocks.length===0){if(from.blocks.length>0&&!(from.blocks.every(b=>b===from.blocks[0])))return true;}else{const toTop=to.blocks[to.blocks.length-1];if(toTop===top)return true;}}}return false;}
 
 function findHint(){
  // En iyi hamleyi bul: dolu tüpten aynı renge git
