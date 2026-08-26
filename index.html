@@ -63,7 +63,7 @@ const LANGS={tr:TR,en:EN,
  th:mk(EN,{sub:'จัดเรียงลูกบอลสี!',play:'▶ เล่น',next:'ถัดไป ▶',retry:'↩ ลองใหม่',win:'🎉 ผ่านด่าน!',adfree:'🚫 ลบโฆษณา',adprice:'$2.99',adbought:'✅ ไม่มีโฆษณา'})
 };
 const LANGLIST=[{c:'tr',l:'🇹🇷 Türkçe'},{c:'en',l:'🇬🇧 English'},{c:'az',l:'🇦🇿 Azərbaycan'},{c:'de',l:'🇩🇪 Deutsch'},{c:'es',l:'🇪🇸 Español'},{c:'fr',l:'🇫🇷 Français'},{c:'ar',l:'🇸🇦 العربية'},{c:'zh',l:'🇨🇳 中文'},{c:'ja',l:'🇯🇵 日本語'},{c:'ko',l:'🇰🇷 한국어'},{c:'hi',l:'🇮🇳 हिन्दी'},{c:'id',l:'🇮🇩 Indonesia'},{c:'vi',l:'🇻🇳 Tiếng Việt'},{c:'th',l:'🇹🇭 ไทย'}];
-let LANG='tr';
+let LANG='en';
 function i18n(k,vars){let s=(LANGS[LANG]||EN)[k]||EN[k]||k;if(vars)for(const[a,b]of Object.entries(vars))s=s.replace('{'+a+'}',b);return s;}
 function detectLang(){const c=navigator.language.slice(0,2).toLowerCase();return LANGS[c]?c:'tr';}
 function lsGet(k,d){try{const v=localStorage.getItem(k);return v!=null?JSON.parse(v):d;}catch{return d;}}
