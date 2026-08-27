@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2670525330586593" crossorigin="anonymous"></script>
 <meta charset="UTF-8"/>
@@ -38,40 +38,80 @@ const SAVE_KEY='ltp_v11',ADFREE_KEY='ltp_adfree',NAME_KEY='ltp_player',LB_KEY='l
 const PALETTE=['#e63030','#1a7fe8','#22c55e','#f5c200','#a855f7','#f97316','#06b6d4','#ec4899','#84cc16'];
 const DAILY_REWARDS=[30,40,50,60,75,100,150];
 
-// Altın harcama fiyatları
 const COST_UNDO=100;
 const COST_HINT=150;
 const COST_TIME=200;
 const COST_TUBE=250;
 const COST_SKIP=400;
 
-const TR={sub:'Renkli topları tüplere sırala!',play:'▶ OYNA',next:'SONRAKİ SEVİYE ▶',retry:'↩ TEKRAR DENE',win:'🎉 SEVİYE TAMAM!',timesup:'⏰ Süre Doldu!',nomoves:'🔒 Hamle Kalmadı!',sprint:'ÇİTA YARIŞI',watchad:'📺 Reklam İzle → Ekstra Tüp',share:'🔗 Paylaş → Ücretsiz Tüp',stuck:'🔒 TIKANDIN',undo:'↩ Geri Al',hint:'💡 İpucu',lb:'🏆 Sıralama',stop:'⏸ Durdur',cont:'▶ Devam Et ({n}. Bölüm)',newgame:'🔄 1. Bölümden Başla',pname:'Oyuncu Adı',lang:'Dil',adfree:'🚫 Reklamları Kaldır',adprice:'₺89,99',adbought:'✅ Reklamsız Aktif',lvl:'Bölüm',ititle:'💼 Kısa Mola!',iskip:'Reklamı Geç → Devam',daily:'📅 Günlük Ödül',collect:'🎁 Topla!',noCoins:'Jeton yetersiz!',hintUsed:'💡 Vurgulanan tüpü seç!',shop:'Altın Mağazası',balance:'Mevcut',shopInfo:'Altın ile neler yapabilirsin?',extratube:'Ekstra Tüp',skip:'Bölüm Atla',close:'Kapat',confirmBuy:'Satın almak istiyor musunuz?',coinsAdded:'altın eklendi!'};
-const EN={sub:'Sort colored balls into tubes!',play:'▶ PLAY',next:'NEXT LEVEL ▶',retry:'↩ TRY AGAIN',win:'🎉 LEVEL COMPLETE!',timesup:"⏰ Time's Up!",nomoves:'🔒 No Moves Left!',sprint:'CHEETAH SPRINT',watchad:'📺 Watch Ad → Extra Tube',share:'🔗 Share → Free Tube',stuck:'🔒 STUCK',undo:'↩ Undo',hint:'💡 Hint',lb:'🏆 Rank',stop:'⏸ Stop',cont:'▶ Continue (Level {n})',newgame:'🔄 Start from Level 1',pname:'Player Name',lang:'Language',adfree:'🚫 Remove Ads',adprice:'$2.99',adbought:'✅ Ad-Free Active',lvl:'Level',ititle:'💼 Quick Break!',iskip:'Skip Ad → Continue',daily:'📅 Daily Reward',collect:'🎁 Collect!',noCoins:'Not enough coins!',hintUsed:'💡 Select the highlighted tube!',shop:'Gold Shop',balance:'Balance',shopInfo:'What can you do with coins?',extratube:'Extra Tube',skip:'Skip Level',close:'Close',confirmBuy:'Do you want to purchase?',coinsAdded:'coins added!'};
+const EN={
+  sub:'Sort colored balls into tubes!',play:'▶ PLAY',next:'NEXT LEVEL ▶',retry:'↩ TRY AGAIN',win:'🎉 LEVEL COMPLETE!',
+  timesup:"⏰ Time's Up!",nomoves:'🔒 No Moves Left!',sprint:'CHEETAH SPRINT',watchad:'📺 Watch Ad → Extra Tube',
+  share:'🔗 Share → Free Tube',stuck:'🔒 STUCK',undo:'↩ Undo',hint:'💡 Hint',lb:'🏆 Leaderboard',
+  stop:'⏸ Stop',cont:'▶ Continue (Level {n})',newgame:'🔄 Start from Level 1',pname:'Player Name',lang:'Language',
+  adfree:'🚫 Remove Ads',adprice:'$2.99',adbought:'✅ Ad-Free Active',lvl:'Level',ititle:'💼 Quick Break!',
+  iskip:'Skip Ad → Continue',daily:'📅 Daily Reward',collect:'🎁 Collect!',noCoins:'Not enough coins!',hintUsed:'💡 Select the highlighted tube!',
+  shop:'Gold Shop',balance:'Balance',shopInfo:'What can you do with coins?',extratube:'Extra Tube',skip:'Skip Level',
+  close:'Close',confirmBuy:'Do you want to purchase?',coinsAdded:'coins added!',back:'← Back',
+  score:'Score',coins:'Gold',streak:'Streak',dailySub:'Log in daily to earn bonus!',day:'day',
+  packSmall:'💎 Small Pack',packMed:'💎💎 Medium Pack',packBig:'💎💎💎 Large Pack',
+  descSmall:'500 Gold',descMed:'1,500 Gold + 50% Bonus',descBig:'4,000 Gold + 166% Bonus',
+  stuckTitle:'🔒 No Way Out!',stuckSub:'No moves remaining. What would you like to do?',undo2:'↩ Undo 2 Steps — 200🪙',
+  extraTubeCost:'🧪 Extra Tube — 250🪙',restart:'↩ Restart Level',noUndo:'No moves to undo!',
+  noHint:'No valid moves found!',confirmSkip:'Do you want to skip this level for 400 gold?',
+  paused:'⏸ Game Paused',resume:'▶ Resume',mainMenu:'🏠 Main Menu',scoreDetail:'Score: {s} · Level {l} · 🪙 {c}',
+  ballsSameColor:'4 balls same color',colors:'colors',timer:'timer',alreadyClaimed:'Already claimed today! Come back tomorrow 🎁',
+  coinsEarned:'coins earned!',adBanner:'📱 AdMob Ad Area',noLb:'No rankings yet.',
+  timeCoins:'🪙 {c} Gold → +40 Seconds',timeCoinsNo:' (Insufficient)',confirmShare:'Link copied!'
+};
+
+const TR={
+  sub:'Renkli topları tüplere sırala!',play:'▶ OYNA',next:'SONRAKİ SEVİYE ▶',retry:'↩ TEKRAR DENE',win:'🎉 SEVİYE TAMAM!',
+  timesup:'⏰ Süre Doldu!',nomoves:'🔒 Hamle Kalmadı!',sprint:'ÇİTA YARIŞI',watchad:'📺 Reklam İzle → Ekstra Tüp',
+  share:'🔗 Paylaş → Ücretsiz Tüp',stuck:'🔒 TIKANDIN',undo:'↩ Geri Al',hint:'💡 İpucu',lb:'🏆 Sıralama Tablosu',
+  stop:'⏸ Durdur',cont:'▶ Devam Et ({n}. Bölüm)',newgame:'🔄 1. Bölümden Başla',pname:'Oyuncu Adı',lang:'Dil',
+  adfree:'🚫 Reklamları Kaldır',adprice:'₺89,99',adbought:'✅ Reklamsız Aktif',lvl:'Bölüm',ititle:'💼 Kısa Mola!',
+  iskip:'Reklamı Geç → Devam',daily:'📅 Günlük Ödül',collect:'🎁 Topla!',noCoins:'Yetersiz altın!',hintUsed:'💡 Vurgulanan tüpü seç!',
+  shop:'Altın Mağazası',balance:'Mevcut',shopInfo:'Altın ile neler yapabilirsin?',extratube:'Ekstra Tüp',skip:'Bölüm Atla',
+  close:'Kapat',confirmBuy:'Satın almak istiyor musunuz?',coinsAdded:'altın eklendi!',back:'← Geri',
+  score:'Skor',coins:'Altın',streak:'Seri',dailySub:'Her gün giriş yap, bonus kazan!',day:'gün',
+  packSmall:'💎 Küçük Paket',packMed:'💎💎 Orta Paket',packBig:'💎💎💎 Büyük Paket',
+  descSmall:'500 Altın',descMed:'1.500 Altın + %50 Bonus',descBig:'4.000 Altın + %166 Bonus',
+  stuckTitle:'🔒 Çıkış Yolu Yok!',stuckSub:'Hiç hamle kalmadı. Ne yapmak istersin?',undo2:'↩ 2 Adım Geri Al — 200🪙',
+  extraTubeCost:'🧪 Ekstra Tüp — 250🪙',restart:'↩ Bölümü Yeniden Başlat',noUndo:'Geri alınacak hamle yok!',
+  noHint:'Hamle bulunamadı!',confirmSkip:'400 altın karşılığı bu bölümü atlamak istiyor musunuz?',
+  paused:'⏸ Oyun Duraklatıldı',resume:'▶ Devam Et',mainMenu:'🏠 Ana Menü',scoreDetail:'Skor: {s} · Bölüm {l} · 🪙 {c}',
+  ballsSameColor:'4 top aynı renk',colors:'renk',timer:'süre',alreadyClaimed:'Bugün zaten aldın! Yarın gel 🎁',
+  coinsEarned:'altın kazandın!',adBanner:'📱 AdMob Reklam Alanı',noLb:'Henüz sıralama yok.',
+  timeCoins:'🪙 {c} Altın → +40 Saniye',timeCoinsNo:' (Yetersiz)',confirmShare:'Link kopyalandı!'
+};
+
 function mk(b,o){return Object.assign({},b,o);}
 const LANGS={tr:TR,en:EN,
- es:mk(EN,{sub:'¡Ordena las bolas!',play:'▶ JUGAR',next:'SIGUIENTE ▶',retry:'↩ REINTENTAR',win:'🎉 ¡NIVEL COMPLETO!',adfree:'🚫 Quitar Anuncios',adprice:'$2.99',adbought:'✅ Sin Anuncios'}),
- fr:mk(EN,{sub:'Triez les billes!',play:'▶ JOUER',next:'SUIVANT ▶',retry:'↩ RÉESSAYER',win:'🎉 NIVEAU COMPLÉTÉ!',adfree:'🚫 Supprimer les Pubs',adprice:'$2.99',adbought:'✅ Sans Pub'}),
- de:mk(EN,{sub:'Sortiere die Kugeln!',play:'▶ SPIELEN',next:'WEITER ▶',retry:'↩ NOCHMAL',win:'🎉 LEVEL GESCHAFFT!',adfree:'🚫 Werbung entfernen',adprice:'$2.99',adbought:'✅ Werbefrei'}),
- ar:mk(EN,{sub:'رتّب الكرات!',play:'▶ العب',next:'التالي ▶',retry:'↩ حاول',win:'🎉 اكتمل المستوى!',adfree:'🚫 إزالة الإعلانات',adprice:'$2.99',adbought:'✅ بدون إعلانات'}),
- zh:mk(EN,{sub:'将彩球分类！',play:'▶ 开始',next:'下一关 ▶',retry:'↩ 再来',win:'🎉 关卡完成！',adfree:'🚫 移除广告',adprice:'¥18',adbought:'✅ 无广告'}),
- ja:mk(EN,{sub:'ボールを並べよう！',play:'▶ プレイ',next:'次へ ▶',retry:'↩ やり直し',win:'🎉 クリア！',adfree:'🚫 広告を削除',adprice:'¥370',adbought:'✅ 広告なし'}),
- ko:mk(EN,{sub:'공을 정렬하세요!',play:'▶ 플레이',next:'다음 ▶',retry:'↩ 다시',win:'🎉 완료!',adfree:'🚫 광고 제거',adprice:'₩3,900',adbought:'✅ 광고 없음'}),
- hi:mk(EN,{sub:'गेंदें सॉर्ट करें!',play:'▶ खेलें',next:'अगला ▶',retry:'↩ पुनः',win:'🎉 पूर्ण!',adfree:'🚫 विज्ञापन हटाएं',adprice:'₹249',adbought:'✅ विज्ञापन-मुक्त'}),
- az:mk(EN,{sub:'Topları sırala!',play:'▶ OYNA',next:'NÖVBƏTİ ▶',retry:'↩ YENİDƏN',win:'🎉 TAMAMLANDI!',adfree:'🚫 Reklamları sil',adprice:'$2.99',adbought:'✅ Reklamdız'}),
- id:mk(EN,{sub:'Sortir bola berwarna!',play:'▶ MAIN',next:'SELANJUTNYA ▶',retry:'↩ COBA LAGI',win:'🎉 LEVEL SELESAI!',adfree:'🚫 Hapus Iklan',adprice:'Rp45.000',adbought:'✅ Tanpa Iklan'}),
- vi:mk(EN,{sub:'Sắp xếp các quả bóng!',play:'▶ CHƠI',next:'TIẾP THEO ▶',retry:'↩ THỬ LẠI',win:'🎉 HOÀN THÀNH!',adfree:'🚫 Xóa quảng cáo',adprice:'$2.99',adbought:'✅ Không quảng cáo'}),
- th:mk(EN,{sub:'จัดเรียงลูกบอลสี!',play:'▶ เล่น',next:'ถัดไป ▶',retry:'↩ ลองใหม่',win:'🎉 ผ่านด่าน!',adfree:'🚫 ลบโฆษณา',adprice:'$2.99',adbought:'✅ ไม่มีโฆษณา'})
+ es:mk(EN,{sub:'¡Ordena las bolas!',play:'▶ JUGAR',next:'SIGUIENTE ▶',retry:'↩ REINTENTAR',win:'🎉 ¡NIVEL COMPLETO!',adfree:'🚫 Quitar Anuncios',adprice:'$2.99',adbought:'✅ Sin Anuncios',lb:'🏆 Clasificación',shop:'Tienda de Oro'}),
+ fr:mk(EN,{sub:'Triez les billes!',play:'▶ JOUER',next:'SUIVANT ▶',retry:'↩ RÉESSAYER',win:'🎉 NIVEAU COMPLÉTÉ!',adfree:'🚫 Supprimer les Pubs',adprice:'$2.99',adbought:'✅ Sans Pub',lb:'🏆 Classement',shop:'Boutique d\'or'}),
+ de:mk(EN,{sub:'Sortiere die Kugeln!',play:'▶ SPIELEN',next:'WEITER ▶',retry:'↩ NOCHMAL',win:'🎉 LEVEL GESCHAFFT!',adfree:'🚫 Werbung entfernen',adprice:'$2.99',adbought:'✅ Werbefrei',lb:'🏆 Rangliste',shop:'Gold-Shop'}),
+ ar:mk(EN,{sub:'رتّب الكرات!',play:'▶ العب',next:'التالي ▶',retry:'↩ حاول',win:'🎉 اكتمل المستوى!',adfree:'🚫 إزالة الإعلانات',adprice:'$2.99',adbought:'✅ بدون إعلانات',lb:'🏆 الترتيب',shop:'متجر الذهب'}),
+ zh:mk(EN,{sub:'将彩球分类！',play:'▶ 开始',next:'下一关 ▶',retry:'↩ 再来',win:'🎉 关卡完成！',adfree:'🚫 移除广告',adprice:'¥18',adbought:'✅ 无广告',lb:'🏆 排行榜',shop:'金币商店'}),
+ ja:mk(EN,{sub:'ボールを並べよう！',play:'▶ プレイ',next:'次へ ▶',retry:'↩ やり直し',win:'🎉 クリア！',adfree:'🚫 広告を削除',adprice:'¥370',adbought:'✅ 広告なし',lb:'🏆 ランキング',shop:'ゴールドショップ'}),
+ ko:mk(EN,{sub:'공을 정렬하세요!',play:'▶ 플레이',next:'다음 ▶',retry:'↩ 다시',win:'🎉 완료!',adfree:'🚫 광고 제거',adprice:'₩3,900',adbought:'✅ 광고 없음',lb:'🏆 순위표',shop:'골드 상점'}),
+ hi:mk(EN,{sub:'गेंदें सॉर्ट करें!',play:'▶ खेलें',next:'अगला ▶',retry:'↩ पुनः',win:'🎉 पूर्ण!',adfree:'🚫 विज्ञापन हटाएं',adprice:'₹249',adbought:'✅ विज्ञापन-मुक्त',lb:'🏆 लीडरबोर्ड',shop:'गोल्ड शॉप'}),
+ az:mk(TR,{sub:'Topları sırala!',play:'▶ OYNA',next:'NÖVBƏTİ ▶',retry:'↩ YENİDƏN',win:'🎉 TAMAMLANDI!',adfree:'🚫 Reklamları sil',adprice:'$2.99',adbought:'✅ Reklamdız',lb:'🏆 Liderlik Cədvəli',shop:'Qızıl Mağazası'}),
+ id:mk(EN,{sub:'Sortir bola berwarna!',play:'▶ MAIN',next:'SELANJUTNYA ▶',retry:'↩ COBA LAGI',win:'🎉 LEVEL SELESAI!',adfree:'🚫 Hapus Iklan',adprice:'Rp45.000',adbought:'✅ Tanpa Iklan',lb:'🏆 Papan Peringkat',shop:'Toko Emas'}),
+ vi:mk(EN,{sub:'Sắp xếp các quả bóng!',play:'▶ CHƠI',next:'TIẾP THEO ▶',retry:'↩ THỬ LẠI',win:'🎉 HOÀN THÀNH!',adfree:'🚫 Xóa quảng cáo',adprice:'$2.99',adbought:'✅ Không quảng cáo',lb:'🏆 Bảng xếp hạng',shop:'Cửa hàng vàng'}),
+ th:mk(EN,{sub:'จัดเรียงลูกบอลสี!',play:'▶ เล่น',next:'ถัดไป ▶',retry:'↩ ลองใหม่',win:'🎉 ผ่านด่าน!',adfree:'🚫 ลบโฆษณา',adprice:'$2.99',adbought:'✅ ไม่มีโฆษณา',lb:'🏆 ตารางคะแนน',shop:'ร้านทอง'})
 };
-const LANGLIST=[{c:'tr',l:'🇹🇷 Türkçe'},{c:'en',l:'🇬🇧 English'},{c:'az',l:'🇦🇿 Azərbaycan'},{c:'de',l:'🇩🇪 Deutsch'},{c:'es',l:'🇪🇸 Español'},{c:'fr',l:'🇫🇷 Français'},{c:'ar',l:'🇸🇦 العربية'},{c:'zh',l:'🇨🇳 中文'},{c:'ja',l:'🇯🇵 日本語'},{c:'ko',l:'🇰🇷 한국어'},{c:'hi',l:'🇮🇳 हिन्दी'},{c:'id',l:'🇮🇩 Indonesia'},{c:'vi',l:'🇻🇳 Tiếng Việt'},{c:'th',l:'🇹🇭 ไทย'}];
+
+const LANGLIST=[{c:'en',l:'🇬🇧 English'},{c:'tr',l:'🇹🇷 Türkçe'},{c:'az',l:'🇦🇿 Azərbaycan'},{c:'de',l:'🇩🇪 Deutsch'},{c:'es',l:'🇪🇸 Español'},{c:'fr',l:'🇫🇷 Français'},{c:'ar',l:'🇸🇦 العربية'},{c:'zh',l:'🇨🇳 中文'},{c:'ja',l:'🇯🇵 日本語'},{c:'ko',l:'🇰🇷 한국어'},{c:'hi',l:'🇮🇳 हिन्दी'},{c:'id',l:'🇮🇩 Indonesia'},{c:'vi',l:'🇻🇳 Tiếng Việt'},{c:'th',l:'🇹🇭 ไทย'}];
+
 let LANG='en';
 function i18n(k,vars){let s=(LANGS[LANG]||EN)[k]||EN[k]||k;if(vars)for(const[a,b]of Object.entries(vars))s=s.replace('{'+a+'}',b);return s;}
-function detectLang(){const c=navigator.language.slice(0,2).toLowerCase();return LANGS[c]?c:'tr';}
 function lsGet(k,d){try{const v=localStorage.getItem(k);return v!=null?JSON.parse(v):d;}catch{return d;}}
 function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch{}}
 function isAdFree(){return lsGet(ADFREE_KEY,false)===true;}
 function setAdFree(){lsSet(ADFREE_KEY,true);}
-function getPlayerName(){return lsGet(NAME_KEY,'Oyuncu');}
-function setPlayerName(n){lsSet(NAME_KEY,(n||'').trim().slice(0,18)||'Oyuncu');}
+function getPlayerName(){return lsGet(NAME_KEY,(LANG==='tr'?'Oyuncu':'Player'));}
+function setPlayerName(n){lsSet(NAME_KEY,(n||'').trim().slice(0,18)||(LANG==='tr'?'Oyuncu':'Player'));}
 function getLB(){return lsGet(LB_KEY,[]);}
 function addLB(score,level){const lb=getLB();lb.push({name:getPlayerName(),score,level,ts:Date.now()});lb.sort((a,b)=>b.score-a.score);lsSet(LB_KEY,lb.slice(0,50));}
 function levelCfg(lv){if(lv<=5)return{colors:3,timer:50};if(lv<=10)return{colors:4,timer:50};if(lv<=15)return{colors:4,timer:50};if(lv<=20)return{colors:5,timer:50};if(lv<=25)return{colors:5,timer:50};if(lv<=30)return{colors:6,timer:50};return{colors:6,timer:50};}
@@ -81,6 +121,7 @@ function getStreak(){return lsGet(STREAK_KEY,{count:0,lastDate:null});}
 function checkDailyReward(){const st=getDailyState(),today=todayStr();if(st.lastDate===today)return null;const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);const nextDay=st.lastDate===yesterday.toISOString().slice(0,10)?((st.day||0)+1)%7:0;return{day:nextDay,coins:DAILY_REWARDS[nextDay]};}
 function claimDailyReward(){const info=checkDailyReward();if(!info)return 0;lsSet(DAILY_KEY,{lastDate:todayStr(),day:info.day});const sk=getStreak(),today=todayStr();const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);const newCount=sk.lastDate===yesterday.toISOString().slice(0,10)?sk.count+1:1;lsSet(STREAK_KEY,{count:newCount,lastDate:today});return info.coins;}
 function getStreakBonus(){const sk=getStreak();if(sk.count>=30)return 3.0;if(sk.count>=14)return 2.0;if(sk.count>=7)return 1.5;return 1.0;}
+
 const Audio={
  ctx:null,mg:null,bgOscs:[],muted:false,unlocked:false,
  _create(){if(this.ctx)return;try{this.ctx=new(window.AudioContext||window.webkitAudioContext)({latencyHint:'interactive'});this.mg=this.ctx.createGain();this.mg.gain.value=0.38;this.mg.connect(this.ctx.destination);}catch(e){}},
@@ -118,7 +159,6 @@ function canMove(from,to){if(from.blocks.length===0||to.blocks.length>=BALLS)ret
 function hasAnyMove(tubes){const n=tubes.length;for(let i=0;i<n;i++){const from=tubes[i];if(from.blocks.length===0)continue;if(from.blocks.length===BALLS&&from.blocks.every(b=>b===from.blocks[0]))continue;const top=from.blocks[from.blocks.length-1];for(let j=0;j<n;j++){if(i===j)continue;const to=tubes[j];if(to.blocks.length>=BALLS)continue;if(to.blocks.length===0){if(from.blocks.length>0&&!(from.blocks.every(b=>b===from.blocks[0])))return true;}else{const toTop=to.blocks[to.blocks.length-1];if(toTop===top)return true;}}}return false;}
 
 function findHint(){
- // En iyi hamleyi bul: dolu tüpten aynı renge git
  for(let i=0;i<G.tubes.length;i++){
  const from=G.tubes[i];if(from.blocks.length===0)continue;
  const top=from.blocks[from.blocks.length-1];
@@ -128,7 +168,6 @@ function findHint(){
  if(canMove(from,to)&&to.blocks.length>0&&to.blocks[to.blocks.length-1]===top)return i;
  }
  }
- // Yoksa boş tüpe git
  for(let i=0;i<G.tubes.length;i++){
  const from=G.tubes[i];if(from.blocks.length===0)continue;
  for(let j=0;j<G.tubes.length;j++){
@@ -192,7 +231,6 @@ function drawTube(c,tb,sel,done,isHint,animT){
  const bw=w-10,br2=bw/2,bs=Math.min(bw+3,(h-14)/BALLS);
  tb.blocks.forEach((ci,bi)=>{drawBall(c,x+w/2,y+h-9-bi*bs-br2,br2,G.palette[ci]||PALETTE[ci]||'#888');});
  c.restore();
- // İpucu tüpünde parlayan ok
  if(isHint){
  const pulse=Math.sin(animT*6)*0.4+0.6;
  c.globalAlpha=pulse;c.font='bold '+(w*0.5)+'px sans-serif';c.fillStyle='#ffd700';c.textAlign='center';c.fillText('💡',x+w/2,y-4);c.globalAlpha=1;
@@ -201,7 +239,7 @@ function drawTube(c,tb,sel,done,isHint,animT){
 }
 
 function drawScene(){
- const{ctx:c,W,H,animT,phase,tubes,palette,selected,particles}=G;
+ const{ctx:c,W,H,animT,phase,tubes,selected}=G;
  c.clearRect(0,0,W,H);
  const bg=c.createLinearGradient(0,0,W*0.3,H);bg.addColorStop(0,'#070918');bg.addColorStop(0.5,'#0a1228');bg.addColorStop(1,'#060d20');
  c.fillStyle=bg;c.fillRect(0,0,W,H);
@@ -229,18 +267,21 @@ function flash(msg){
 
 function showDailyReward(){
  const info=checkDailyReward();if(!info)return false;
- const days=DAILY_REWARDS.map((r,i)=>'<div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 5px;border-radius:12px;background:'+(i===info.day?'rgba(245,194,0,0.18)':'rgba(255,255,255,0.04)')+';border:1px solid '+(i===info.day?'rgba(245,194,0,0.5)':'rgba(255,255,255,0.07)')+';min-width:36px;"><div style="font-size:9px;color:#88aaff;">'+(i+1)+'.gün</div><div style="font-size:13px;">🪙</div><div style="font-size:10px;font-weight:700;color:'+(i===info.day?'#ffd700':'#aaa')+';">'+r+'</div></div>').join('');
- showOv('rgba(5,8,25,0.97)','<div style="text-align:center;padding:24px 18px;max-width:320px;width:94%;"><div style="font-size:24px;font-weight:900;color:#ffd700;margin-bottom:4px;">📅 Günlük Ödül</div><div style="color:#88aaff;font-size:12px;margin-bottom:16px;">Her gün giriş yap, bonus kazan!</div><div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;">'+days+'</div><div style="font-size:32px;margin-bottom:6px;">🪙</div><div style="font-size:28px;font-weight:900;color:#ffd700;margin-bottom:4px;">+'+info.coins+' Altın</div><button id="dr-claim" class="btn btn-gold" style="font-size:16px;padding:14px 40px;width:100%;margin-top:8px;">🎁 Topla!</button></div>');
- document.getElementById('dr-claim').onclick=()=>{const earned=claimDailyReward();G.coins+=earned;saveGame();Audio.daily();hideOv();floatScore(G.W/2-40,G.H/2,'🪙+'+earned);flash('🎉 +'+earned+' altın kazandın!');if(G.phase==='splash')showSplash();};
+ const days=DAILY_REWARDS.map((r,i)=>'<div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 5px;border-radius:12px;background:'+(i===info.day?'rgba(245,194,0,0.18)':'rgba(255,255,255,0.04)')+';border:1px solid '+(i===info.day?'rgba(245,194,0,0.5)':'rgba(255,255,255,0.07)')+';min-width:36px;"><div style="font-size:9px;color:#88aaff;">'+(i+1)+'.'+i18n('day')+'</div><div style="font-size:13px;">🪙</div><div style="font-size:10px;font-weight:700;color:'+(i===info.day?'#ffd700':'#aaa')+';">'+r+'</div></div>').join('');
+ showOv('rgba(5,8,25,0.97)','<div style="text-align:center;padding:24px 18px;max-width:320px;width:94%;"><div style="font-size:24px;font-weight:900;color:#ffd700;margin-bottom:4px;">'+i18n('daily')+'</div><div style="color:#88aaff;font-size:12px;margin-bottom:16px;">'+i18n('dailySub')+'</div><div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;">'+days+'</div><div style="font-size:32px;margin-bottom:6px;">🪙</div><div style="font-size:28px;font-weight:900;color:#ffd700;margin-bottom:4px;">+'+info.coins+' '+i18n('coins')+'</div><button id="dr-claim" class="btn btn-gold" style="font-size:16px;padding:14px 40px;width:100%;margin-top:8px;">'+i18n('collect')+'</button></div>');
+ document.getElementById('dr-claim').onclick=()=>{const earned=claimDailyReward();G.coins+=earned;saveGame();Audio.daily();hideOv();floatScore(G.W/2-40,G.H/2,'🪙+'+earned);flash('🎉 +'+earned+' '+i18n('coinsEarned'));if(G.phase==='splash')showSplash();};
  return true;
 }
 
 function showShop(){
  const af=isAdFree();
+ const priceSmall=LANG==='tr'?'₺19,99':(LANG==='zh'?'¥6':LANG==='ja'?'¥150':LANG==='ko'?'₩1,500':LANG==='hi'?'₹79':'$0.99');
+ const priceMed=LANG==='tr'?'₺39,99':(LANG==='zh'?'¥12':LANG==='ja'?'¥300':LANG==='ko'?'₩3,000':LANG==='hi'?'₹149':'$1.99');
+ const priceBig=LANG==='tr'?'₺79,99':(LANG==='zh'?'¥25':LANG==='ja'?'¥600':LANG==='ko'?'₩6,000':LANG==='hi'?'₹299':'$3.99');
  const packs=[
- {id:'coins_small',label:'💎 Küçük Paket',amount:500,price:'₺19,99',desc:'500 Altın'},
- {id:'coins_med',label:'💎💎 Orta Paket',amount:1500,price:'₺39,99',desc:'1.500 Altın + %50 Bonus'},
- {id:'coins_big',label:'💎💎💎 Büyük Paket',amount:4000,price:'₺79,99',desc:'4.000 Altın + %166 Bonus'},
+ {id:'coins_small',label:i18n('packSmall'),amount:500,price:priceSmall,desc:i18n('descSmall')},
+ {id:'coins_med',label:i18n('packMed'),amount:1500,price:priceMed,desc:i18n('descMed')},
+ {id:'coins_big',label:i18n('packBig'),amount:4000,price:priceBig,desc:i18n('descBig')},
  ];
  const rows=packs.map(p=>'<button class="shop-pack" data-id="'+p.id+'" data-amt="'+p.amount+'" style="width:100%;background:rgba(77,208,255,0.07);border:1px solid rgba(77,208,255,0.22);border-radius:16px;padding:13px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;"><div style="text-align:left;"><div style="color:#fff;font-weight:800;font-size:14px;">'+p.label+'</div><div style="color:#88aaff;font-size:11px;">'+p.desc+'</div></div><div style="color:#ffd700;font-weight:900;font-size:16px;">'+p.price+'</div></button>').join(''); showOv('rgba(5,8,25,0.97)','<div style="text-align:center;padding:22px 16px;max-width:320px;width:94%;max-height:90vh;overflow-y:auto;"><div style="font-size:22px;font-weight:900;color:#4dd0ff;margin-bottom:4px;">🛒 '+i18n('shop')+'</div><div style="color:#88aaff;font-size:12px;margin-bottom:6px;">'+i18n('balance')+': 🪙 '+G.coins+'</div><div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:10px;margin-bottom:14px;text-align:left;font-size:11px;color:#88aaff;"><b style="color:#fff;">'+i18n('shopInfo')+'</b><br>↩ '+i18n('undo')+': 100 · 💡 '+i18n('hint')+': 150<br>⏰ +40s: 200 · 🧪 '+i18n('extratube')+': 250<br>⏭ '+i18n('skip')+': 400</div>'+rows+(af?'':'<button id="sh-adf" style="width:100%;background:rgba(255,200,0,0.07);border:1px solid rgba(255,200,0,0.22);border-radius:16px;padding:13px 16px;cursor:pointer;color:#ffcc00;font-weight:800;font-size:14px;margin-bottom:8px;">🚫 '+i18n('adfree')+' — '+i18n('adprice')+'</button>')+'<button id="sh-close" class="btn btn-ghost" style="font-size:13px;padding:10px 24px;min-height:44px;width:100%;margin-top:4px;">✕ '+i18n('close')+'</button></div>'); document.querySelectorAll('.shop-pack').forEach(btn=>{btn.onclick=()=>{const amt=parseInt(btn.dataset.amt);if(confirm(btn.querySelector('div>div').textContent+'\n\n'+i18n('confirmBuy'))){G.coins+=amt;saveGame();Audio.coin();flash('🎉 +'+amt+' '+i18n('coinsAdded'));floatScore(G.W/2-40,G.H/2,'🪙+'+amt);hideOv();if(G.phase==='splash')showSplash();}}; }); if(!af){const adfBtn=document.getElementById('sh-adf');if(adfBtn)adfBtn.onclick=()=>{if(confirm(i18n('adfree')+' — '+i18n('adprice')+'\n\n'+i18n('confirmBuy'))){setAdFree();flash(i18n('adbought'));hideOv();if(G.phase==='splash')showSplash();}};} document.getElementById('sh-close').onclick=()=>{hideOv();if(G.phase==='splash')showSplash();}; }
 
@@ -248,9 +289,9 @@ function buildHUD(){
  const sk=getStreak();
  document.getElementById('hud').innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 10px 4px;background:rgba(5,8,25,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(77,208,255,0.1);">'
  +'<div style="display:flex;flex-direction:column;"><span style="font-size:10px;color:#3a5570;">'+i18n('lvl')+'</span><span style="font-size:17px;font-weight:900;color:#fff;line-height:1;">'+G.level+'</span></div>'
- +'<div style="display:flex;flex-direction:column;align-items:center;"><span style="font-size:10px;color:#3a5570;">Skor</span><span style="font-size:15px;font-weight:800;color:#fff;line-height:1;" id="hud-score">'+G.score+'</span></div>'
- +'<div style="display:flex;flex-direction:column;align-items:center;"><span style="font-size:10px;color:#3a5570;">🪙 Altın</span><span style="font-size:15px;font-weight:800;color:#ffd700;line-height:1;" id="hud-coins">'+G.coins+'</span></div>'
- +(sk.count>1?'<div style="display:flex;flex-direction:column;align-items:center;"><span style="font-size:10px;color:#ff8844;">🔥 Seri</span><span style="font-size:15px;font-weight:800;color:#ff8844;line-height:1;">'+sk.count+'</span></div>':'')
+ +'<div style="display:flex;flex-direction:column;align-items:center;"><span style="font-size:10px;color:#3a5570;">'+i18n('score')+'</span><span style="font-size:15px;font-weight:800;color:#fff;line-height:1;" id="hud-score">'+G.score+'</span></div>'
+ +'<div style="display:flex;flex-direction:column;align-items:center;"><span style="font-size:10px;color:#3a5570;">🪙 '+i18n('coins')+'</span><span style="font-size:15px;font-weight:800;color:#ffd700;line-height:1;" id="hud-coins">'+G.coins+'</span></div>'
+ +(sk.count>1?'<div style="display:flex;flex-direction:column;align-items:center;"><span style="font-size:10px;color:#ff8844;">🔥 '+i18n('streak')+'</span><span style="font-size:15px;font-weight:800;color:#ff8844;line-height:1;">'+sk.count+'</span></div>':'')
  +'<div style="display:flex;gap:5px;align-items:center;">'
  +'<button onclick="doUndo()" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:#fff;font-size:11px;font-weight:700;padding:5px 8px;cursor:pointer;min-height:34px;touch-action:manipulation;">↩<br><span style="font-size:9px;color:#ffd700;">100🪙</span></button>'
  +'<button onclick="doHint()" style="background:rgba(255,220,0,0.08);border:1px solid rgba(255,220,0,0.25);border-radius:10px;color:#ffd700;font-size:11px;font-weight:700;padding:5px 8px;cursor:pointer;min-height:34px;touch-action:manipulation;">💡<br><span style="font-size:9px;color:#ffd700;">150🪙</span></button>'
@@ -280,17 +321,17 @@ function hideOv(){document.getElementById('ov').style.display='none';}
 
 function doUndo(){
  if(G.phase!=='playing')return;
- if(!G.history.length){flash('Geri alınacak hamle yok!');return;}
- if(G.coins<COST_UNDO){flash('Yetersiz altın! ('+COST_UNDO+'🪙 gerekli)');return;}
+ if(!G.history.length){flash(i18n('noUndo'));return;}
+ if(G.coins<COST_UNDO){flash(i18n('noCoins')+' ('+COST_UNDO+'🪙)');return;}
  G.coins-=COST_UNDO;saveGame();undoMove();Audio.pickup();
  floatScore(G.W/2-30,G.H/3,'-'+COST_UNDO+'🪙');updateHUD();
 }
 
 function doHint(){
  if(G.phase!=='playing')return;
- if(G.coins<COST_HINT){flash('Yetersiz altın! ('+COST_HINT+'🪙 gerekli)');return;}
+ if(G.coins<COST_HINT){flash(i18n('noCoins')+' ('+COST_HINT+'🪙)');return;}
  const idx=findHint();
- if(idx===-1){flash('Hamle bulunamadı!');return;}
+ if(idx===-1){flash(i18n('noHint'));return;}
  G.coins-=COST_HINT;saveGame();G.hintTube=idx;Audio.hint();
  floatScore(G.W/2-30,G.H/3,'-'+COST_HINT+'🪙');updateHUD();
  flash(i18n('hintUsed'));
@@ -299,12 +340,13 @@ function doHint(){
 
 function doSkip(){
  if(G.phase!=='playing')return;
- if(G.coins<COST_SKIP){flash('Yetersiz altın! ('+COST_SKIP+'🪙 gerekli)');return;}
- if(!confirm('400 altın karşılığı bu bölümü atlamak istiyor musunuz?'))return;
+ if(G.coins<COST_SKIP){flash(i18n('noCoins')+' ('+COST_SKIP+'🪙)');return;}
+ if(!confirm(i18n('confirmSkip')))return;
  G.coins-=COST_SKIP;G.level++;saveGame();Audio.win();
  floatScore(G.W/2-40,G.H/3,'⏭ -'+COST_SKIP+'🪙');
  setTimeout(()=>maybeInterstitial(()=>startLevel()),400);
 }
+
 function showSplash(){
  G.phase='splash';stopTimer();document.getElementById('hud').style.display='none';
  const hp=G.level>1||G.score>0,af=isAdFree();
@@ -313,10 +355,10 @@ function showSplash(){
  showOv('rgba(5,10,30,0.97)','<div style="text-align:center;padding:20px 16px;max-width:340px;width:94%;max-height:96vh;overflow-y:auto;">'
  +'<div style="font-size:clamp(24px,7vw,42px);font-weight:900;letter-spacing:2px;margin-bottom:2px;background:linear-gradient(135deg,#4dd0ff,#7b2fff,#ff3366);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Logic Tube Pro</div>'
  +'<div style="color:#3a5570;font-size:11px;margin-bottom:4px;">'+i18n('sub')+'</div>'
- +(sk.count>1?'<div style="color:#ff8844;font-size:12px;font-weight:700;margin-bottom:10px;">🔥 '+sk.count+' günlük seri!</div>':'<div style="margin-bottom:10px;"></div>')
+ +(sk.count>1?'<div style="color:#ff8844;font-size:12px;font-weight:700;margin-bottom:10px;">🔥 '+sk.count+' '+i18n('streak')+'!</div>':'<div style="margin-bottom:10px;"></div>')
  +'<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px;margin-bottom:12px;text-align:left;">'
  +'<div style="color:#88aaff;font-size:11px;margin-bottom:5px;">'+i18n('pname')+'</div>'
- +'<input id="sp-name" maxlength="18" placeholder="Oyuncu" value="'+getPlayerName()+'" style="margin-bottom:10px;"/>'
+ +'<input id="sp-name" maxlength="18" placeholder="'+i18n('pname')+'" value="'+getPlayerName()+'" style="margin-bottom:10px;"/>'
  +'<div style="color:#88aaff;font-size:11px;margin-bottom:5px;">'+i18n('lang')+'</div>'
  +'<select id="sp-lang">'+lo+'</select></div>'
  +'<div style="display:flex;flex-direction:column;gap:9px;margin-bottom:12px;">'
@@ -325,17 +367,25 @@ function showSplash(){
  +'<div style="display:flex;gap:8px;margin-bottom:10px;">'
  +'<button id="sp-daily" style="flex:1;background:rgba(245,194,0,0.1);border:1px solid rgba(245,194,0,0.3);border-radius:16px;color:#ffd700;font-size:12px;font-weight:700;padding:8px;cursor:pointer;">📅 '+i18n('daily')+'</button>'
 +'<button id="sp-shop" style="flex:1;background:rgba(77,208,255,0.1);border:1px solid rgba(77,208,255,0.3);border-radius:16px;color:#4dd0ff;font-size:12px;font-weight:700;padding:8px;cursor:pointer;">🛒 '+i18n('shop')+'</button></div>'
- +'<button id="sp-lb" style="background:rgba(255,215,0,0.07);border:1px solid rgba(255,215,0,0.2);border-radius:22px;color:#ffd700;font-size:12px;font-weight:700;padding:8px 18px;cursor:pointer;width:100%;margin-bottom:8px;">🏆 Sıralama Tablosu</button>'
+ +'<button id="sp-lb" style="background:rgba(255,215,0,0.07);border:1px solid rgba(255,215,0,0.2);border-radius:22px;color:#ffd700;font-size:12px;font-weight:700;padding:8px 18px;cursor:pointer;width:100%;margin-bottom:8px;">'+i18n('lb')+'</button>'
  +'<button id="sp-adf" style="background:'+(af?'rgba(68,255,136,0.1)':'rgba(255,200,0,0.07)')+';border:1px solid '+(af?'rgba(68,255,136,0.3)':'rgba(255,200,0,0.22)')+';border-radius:22px;color:'+(af?'#44ff88':'#ffcc00')+';font-size:12px;font-weight:700;padding:8px 18px;cursor:pointer;width:100%;">'+(af?i18n('adbought'):i18n('adfree')+' — '+i18n('adprice'))+'</button>'
- +'<div style="margin-top:8px;color:#1a2840;font-size:10px;">'+G.score+' puan · 🪙 '+G.coins+'</div></div>');
- document.getElementById('sp-lang').onchange=e=>{const c=e.target.value;if(LANGS[c]){LANG=c;try{localStorage.setItem('ltp_lang',c);}catch{}showSplash();}};
+ +'<div style="margin-top:8px;color:#3a5570;font-size:10px;">'+G.score+' '+i18n('score')+' · 🪙 '+G.coins+'</div></div>');
+ 
+ document.getElementById('sp-lang').onchange=e=>{
+  const c=e.target.value;
+  if(LANGS[c]){
+   LANG=c;
+   saveGame();
+   showSplash();
+  }
+ };
  const sn=()=>{const v=document.getElementById('sp-name');if(v)setPlayerName(v.value);};
  if(hp)document.getElementById('sp-cont').onclick=()=>{sn();Audio.unlock();showMenu();};
  document.getElementById('sp-new').onclick=()=>{sn();Audio.unlock();G.level=1;G.score=0;G.coins=50;saveGame();showMenu();};
- document.getElementById('sp-daily').onclick=()=>{sn();if(!showDailyReward())flash('Bugün zaten aldın! Yarın gel 🎁');};
+ document.getElementById('sp-daily').onclick=()=>{sn();if(!showDailyReward())flash(i18n('alreadyClaimed'));};
  document.getElementById('sp-shop').onclick=()=>{sn();showShop();};
  document.getElementById('sp-lb').onclick=()=>{sn();showLeaderboard();};
- document.getElementById('sp-adf').onclick=()=>{if(isAdFree()){flash(i18n('adbought'));return;}if(confirm(i18n('adfree')+' — '+i18n('adprice')+'\n\nOnaylıyor musunuz?')){setAdFree();flash(i18n('adbought'));const b=document.getElementById('sp-adf');if(b){b.style.color='#44ff88';b.textContent=i18n('adbought');}}};
+ document.getElementById('sp-adf').onclick=()=>{if(isAdFree()){flash(i18n('adbought'));return;}if(confirm(i18n('adfree')+' — '+i18n('adprice')+'\n\n'+i18n('confirmBuy'))){setAdFree();flash(i18n('adbought'));const b=document.getElementById('sp-adf');if(b){b.style.color='#44ff88';b.textContent=i18n('adbought');}}};
 }
 
 function showMenu(){
@@ -345,11 +395,11 @@ function showMenu(){
  +'<div style="font-size:clamp(24px,7vw,44px);font-weight:900;letter-spacing:2px;margin-bottom:4px;background:linear-gradient(135deg,#4dd0ff,#7b2fff,#ff3366);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Logic Tube Pro</div>'
  +'<div style="color:#3a5570;font-size:13px;margin-bottom:16px;">'+i18n('sub')+'</div>'
  +'<div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;">'
- +'<div style="background:rgba(77,208,255,0.08);border:1px solid rgba(77,208,255,0.2);border-radius:13px;padding:10px 12px;color:#a0c8e0;font-size:11px;text-align:center;min-width:72px;">🎯<br><b style="color:#fff">4 top</b><br>aynı renk</div>'
- +'<div style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:10px 12px;color:#a0c8e0;font-size:11px;text-align:center;min-width:72px;">🎨<br><b style="color:#fff">'+colors+' renk</b><br>Bölüm '+G.level+'</div>'
- +'<div style="background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:13px;padding:10px 12px;color:#a0c8e0;font-size:11px;text-align:center;min-width:72px;">⏰<br><b style="color:#fff">'+timer+'sn</b><br>süre</div></div>'
+ +'<div style="background:rgba(77,208,255,0.08);border:1px solid rgba(77,208,255,0.2);border-radius:13px;padding:10px 12px;color:#a0c8e0;font-size:11px;text-align:center;min-width:72px;">🎯<br><b style="color:#fff">'+i18n('ballsSameColor')+'</b></div>'
+ +'<div style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.2);border-radius:13px;padding:10px 12px;color:#a0c8e0;font-size:11px;text-align:center;min-width:72px;">🎨<br><b style="color:#fff">'+colors+' '+i18n('colors')+'</b><br>'+i18n('lvl')+' '+G.level+'</div>'
+ +'<div style="background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:13px;padding:10px 12px;color:#a0c8e0;font-size:11px;text-align:center;min-width:72px;">⏰<br><b style="color:#fff">'+timer+'s</b><br>'+i18n('timer')+'</div></div>'
  +'<button id="mn-play" class="btn btn-primary" style="font-size:17px;padding:15px 52px;width:100%;">'+i18n('play')+'</button>'
- +'<div style="margin-top:10px;"><button id="mn-back" style="background:transparent;border:none;color:#1e2d44;font-size:11px;cursor:pointer;padding:6px;">← Geri</button></div></div>');
+ +'<div style="margin-top:10px;"><button id="mn-back" style="background:transparent;border:none;color:#3a5570;font-size:11px;cursor:pointer;padding:6px;">'+i18n('back')+'</button></div></div>');
  document.getElementById('mn-play').onclick=()=>{Audio.unlock();startLevel();};
  document.getElementById('mn-back').onclick=()=>showSplash();
 }
@@ -358,7 +408,7 @@ function maybeInterstitial(cb){
  if(isAdFree()||G.level%5!==0){cb();return;}
  G.afterInterstitial=cb;G.phase='interstitial';stopTimer();document.getElementById('hud').style.display='none';
  let s=5;
- showOv('rgba(0,0,0,0.97)','<div style="text-align:center;padding:30px 20px;max-width:320px;width:92%;"><div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;">'+i18n('ititle')+'</div><div style="width:100%;height:90px;background:linear-gradient(135deg,#7b2fff22,#00e5ff22);border:1px solid rgba(77,208,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:12px 0;color:#88aaff;font-size:12px;">📱 AdMob Banner Area</div><button id="its-skip" class="btn btn-ghost" disabled style="opacity:0.4;font-size:13px;">'+i18n('iskip')+' (<span id="its-cnt">5</span>s)</button></div>');
+ showOv('rgba(0,0,0,0.97)','<div style="text-align:center;padding:30px 20px;max-width:320px;width:92%;"><div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;">'+i18n('ititle')+'</div><div style="width:100%;height:90px;background:linear-gradient(135deg,#7b2fff22,#00e5ff22);border:1px solid rgba(77,208,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:12px 0;color:#88aaff;font-size:12px;">'+i18n('adBanner')+'</div><button id="its-skip" class="btn btn-ghost" disabled style="opacity:0.4;font-size:13px;">'+i18n('iskip')+' (<span id="its-cnt">5</span>s)</button></div>');
  const iv=setInterval(()=>{s--;const el=document.getElementById('its-cnt');if(el)el.textContent=s;if(s<=0){clearInterval(iv);const btn=document.getElementById('its-skip');if(btn){btn.disabled=false;btn.style.opacity='1';btn.textContent=i18n('iskip');}}},1000);
  document.getElementById('its-skip').onclick=()=>{if(!document.getElementById('its-skip').disabled){clearInterval(iv);hideOv();if(G.afterInterstitial)G.afterInterstitial();}};
 }
@@ -370,44 +420,57 @@ function showWin(){
  const bonus=base;
  const coinsEarned=5;
  G.score+=bonus;G.coins+=coinsEarned;addLB(G.score,G.level);saveGame();Audio.win();
- const streakTxt=streakMult>1?'<div style="color:#ff8844;font-size:12px;margin-bottom:4px;">🔥 Seri bonusu x'+streakMult+'!</div>':'';
- showOv('rgba(0,12,5,0.92)','<div style="text-align:center;padding:22px 18px;max-width:300px;width:92%;"><div style="font-size:clamp(18px,6vw,36px);font-weight:900;margin-bottom:6px;background:linear-gradient(135deg,#ffcc00,#44ff88,#4dd0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">'+i18n('win')+'</div>'+streakTxt+'<div style="color:#88ddaa;font-size:14px;margin:4px 0 18px;">+'+bonus+' puan · 🪙+'+coinsEarned+'</div><button id="win-next" class="btn btn-green" style="font-size:15px;padding:14px 40px;width:100%;">'+i18n('next')+'</button></div>');
+ const streakTxt=streakMult>1?'<div style="color:#ff8844;font-size:12px;margin-bottom:4px;">🔥 '+i18n('streak')+' bonus x'+streakMult+'!</div>':'';
+ showOv('rgba(0,12,5,0.92)','<div style="text-align:center;padding:22px 18px;max-width:300px;width:92%;"><div style="font-size:clamp(18px,6vw,36px);font-weight:900;margin-bottom:6px;background:linear-gradient(135deg,#ffcc00,#44ff88,#4dd0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">'+i18n('win')+'</div>'+streakTxt+'<div style="color:#88ddaa;font-size:14px;margin:4px 0 18px;">+'+bonus+' '+i18n('score')+' · 🪙+'+coinsEarned+'</div><button id="win-next" class="btn btn-green" style="font-size:15px;padding:14px 40px;width:100%;">'+i18n('next')+'</button></div>');
  document.getElementById('win-next').onclick=()=>{G.level++;maybeInterstitial(()=>startLevel());};
 }
-function showStuck(){if(G.phase==='over')return;G.phase='over';stopTimer();Audio.fail();showOv('rgba(14,3,3,0.94)','<div style="text-align:center;padding:22px 18px;max-width:310px;width:92%;"><div style="font-size:clamp(16px,5vw,28px);font-weight:900;color:#ff8800;margin-bottom:8px;">🔒 Çıkış Yolu Yok!</div><div style="color:#884422;font-size:12px;margin-bottom:16px;">Hiç hamle kalmadı. Ne yapmak istersin?</div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;"><button id="sk-undo" class="btn btn-gold" style="font-size:13px;padding:11px;width:100%;min-height:44px;">↩ 2 Adım Geri Al — 200🪙</button><button id="sk-tube" class="btn btn-primary" style="font-size:13px;padding:11px;width:100%;min-height:44px;">🧪 Ekstra Tüp — 250🪙</button><button id="sk-ad" class="btn" style="background:rgba(77,208,255,0.12);border:1px solid rgba(77,208,255,0.3);font-size:13px;padding:11px;width:100%;min-height:44px;">📺 Reklam İzle → Ekstra Tüp</button></div><button id="sk-retry" class="btn btn-ghost" style="font-size:13px;padding:10px;min-height:44px;width:100%;">↩ Bölümü Yeniden Başlat</button></div>');document.getElementById('sk-undo').onclick=()=>{if(G.coins>=200&&G.history.length>=2){G.coins-=200;undoMove();undoMove();saveGame();resumePlay();}else if(G.coins<200){flash('Yetersiz altın!');}else{flash('Yeterli geçmiş hamle yok!');}};document.getElementById('sk-tube').onclick=()=>{if(G.coins>=COST_TUBE){G.coins-=COST_TUBE;saveGame();addExtraTube();resumePlay();}else flash('Yetersiz altın! ('+COST_TUBE+'🪙 gerekli)');};document.getElementById('sk-ad').onclick=()=>{flash('📺 Reklam izleniyor…');setTimeout(()=>{addExtraTube();resumePlay();},1500);};document.getElementById('sk-retry').onclick=()=>startLevel();}
+
+function showStuck(){
+ if(G.phase==='over')return;G.phase='over';stopTimer();Audio.fail();
+ showOv('rgba(14,3,3,0.94)','<div style="text-align:center;padding:22px 18px;max-width:310px;width:92%;"><div style="font-size:clamp(16px,5vw,28px);font-weight:900;color:#ff8800;margin-bottom:8px;">'+i18n('stuckTitle')+'</div><div style="color:#884422;font-size:12px;margin-bottom:16px;">'+i18n('stuckSub')+'</div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px;"><button id="sk-undo" class="btn btn-gold" style="font-size:13px;padding:11px;width:100%;min-height:44px;">'+i18n('undo2')+'</button><button id="sk-tube" class="btn btn-primary" style="font-size:13px;padding:11px;width:100%;min-height:44px;">'+i18n('extraTubeCost')+'</button><button id="sk-ad" class="btn" style="background:rgba(77,208,255,0.12);border:1px solid rgba(77,208,255,0.3);font-size:13px;padding:11px;width:100%;min-height:44px;">'+i18n('watchad')+'</button></div><button id="sk-retry" class="btn btn-ghost" style="font-size:13px;padding:10px;min-height:44px;width:100%;">'+i18n('restart')+'</button></div>');
+ document.getElementById('sk-undo').onclick=()=>{if(G.coins>=200&&G.history.length>=2){G.coins-=200;undoMove();undoMove();saveGame();resumePlay();}else if(G.coins<200){flash(i18n('noCoins'));}else{flash(i18n('noUndo'));}};
+ document.getElementById('sk-tube').onclick=()=>{if(G.coins>=COST_TUBE){G.coins-=COST_TUBE;saveGame();addExtraTube();resumePlay();}else flash(i18n('noCoins')+' ('+COST_TUBE+'🪙)');};
+ document.getElementById('sk-ad').onclick=()=>{flash('📺 ...');setTimeout(()=>{addExtraTube();resumePlay();},1500);};
+ document.getElementById('sk-retry').onclick=()=>startLevel();
+}
+
 function showGameOver(reason){
  if(G.phase==='over')return;G.phase='over';stopTimer();Audio.fail();
  const cr=!G.reviveUsed,hc=G.coins>=COST_TIME;
- showOv('rgba(14,3,3,0.94)','<div style="text-align:center;padding:22px 18px;max-width:310px;width:92%;"><div style="font-size:clamp(16px,5vw,30px);font-weight:900;color:#ff4466;margin-bottom:6px;">'+i18n(reason==='time'?'timesup':'nomoves')+'</div><div style="color:#662233;font-size:12px;margin-bottom:14px;">Skor: '+G.score+' · Bölüm '+G.level+' · 🪙 '+G.coins+'</div>'
+ showOv('rgba(14,3,3,0.94)','<div style="text-align:center;padding:22px 18px;max-width:310px;width:92%;"><div style="font-size:clamp(16px,5vw,30px);font-weight:900;color:#ff4466;margin-bottom:6px;">'+i18n(reason==='time'?'timesup':'nomoves')+'</div><div style="color:#662233;font-size:12px;margin-bottom:14px;">'+i18n('scoreDetail',{s:G.score,l:G.level,c:G.coins})+'</div>'
  +(cr?'<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">'
- +'<button id="rv-coins" class="btn" style="background:'+(hc?'linear-gradient(135deg,#f5a623,#e67e22)':'rgba(60,60,60,0.4)')+';font-size:12px;padding:10px;width:100%;min-height:44px;">🪙 '+COST_TIME+' Altın → +40 Saniye'+(hc?'':' (Yetersiz)')+'</button>'
- +'<button id="rv-tube" class="btn" style="background:rgba(77,208,255,0.12);border:1px solid rgba(77,208,255,0.3);font-size:12px;padding:10px;width:100%;min-height:44px;">🧪 '+COST_TUBE+' Altın → Ekstra Tüp</button>'
- +'<button id="rv-ad" class="btn btn-primary" style="font-size:12px;padding:10px;width:100%;min-height:44px;">📺 Reklam İzle → Ekstra Tüp</button>'
+ +'<button id="rv-coins" class="btn" style="background:'+(hc?'linear-gradient(135deg,#f5a623,#e67e22)':'rgba(60,60,60,0.4)')+';font-size:12px;padding:10px;width:100%;min-height:44px;">'+i18n('timeCoins',{c:COST_TIME})+(hc?'':i18n('timeCoinsNo'))+'</button>'
+ +'<button id="rv-tube" class="btn" style="background:rgba(77,208,255,0.12);border:1px solid rgba(77,208,255,0.3);font-size:12px;padding:10px;width:100%;min-height:44px;">🧪 '+COST_TUBE+' '+i18n('coins')+' → '+i18n('extratube')+'</button>'
+ +'<button id="rv-ad" class="btn btn-primary" style="font-size:12px;padding:10px;width:100%;min-height:44px;">'+i18n('watchad')+'</button>'
  +'<button id="rv-share" class="btn btn-green" style="font-size:12px;padding:10px;width:100%;min-height:44px;">'+i18n('share')+'</button>'
  +'</div>':'')
  +'<button id="rv-retry" class="btn btn-ghost" style="font-size:13px;padding:10px 22px;min-height:44px;width:100%;">'+i18n('retry')+'</button></div>');
  document.getElementById('rv-retry').onclick=()=>startLevel();
  if(cr){
- document.getElementById('rv-coins').onclick=()=>{if(G.coins>=COST_TIME){G.coins-=COST_TIME;G.reviveUsed=true;G.timerLeft=Math.min(G.timerLeft+40,G.timerDur+40);saveGame();resumePlay();}else flash('Yetersiz altın! ('+COST_TIME+'🪙 gerekli)');};
- document.getElementById('rv-tube').onclick=()=>{if(G.coins>=COST_TUBE){G.coins-=COST_TUBE;G.reviveUsed=true;saveGame();addExtraTube();resumePlay();}else flash('Yetersiz altın! ('+COST_TUBE+'🪙 gerekli)');};
- document.getElementById('rv-ad').onclick=()=>{flash('📺 Reklam izleniyor…');setTimeout(()=>{addExtraTube();G.reviveUsed=true;resumePlay();},1500);};
- document.getElementById('rv-share').onclick=()=>{if(navigator.share){navigator.share({title:'Logic Tube Pro',text:'Bu bulmacayı çözebilir misin? 🎮',url:location.href}).then(()=>{addExtraTube();G.reviveUsed=true;resumePlay();}).catch(()=>{addExtraTube();G.reviveUsed=true;resumePlay();});}else{try{navigator.clipboard.writeText(location.href);}catch{}flash('🔗 Link kopyalandı!');setTimeout(()=>{addExtraTube();G.reviveUsed=true;resumePlay();},800);}};
+ document.getElementById('rv-coins').onclick=()=>{if(G.coins>=COST_TIME){G.coins-=COST_TIME;G.reviveUsed=true;G.timerLeft=Math.min(G.timerLeft+40,G.timerDur+40);saveGame();resumePlay();}else flash(i18n('noCoins')+' ('+COST_TIME+'🪙)');};
+ document.getElementById('rv-tube').onclick=()=>{if(G.coins>=COST_TUBE){G.coins-=COST_TUBE;G.reviveUsed=true;saveGame();addExtraTube();resumePlay();}else flash(i18n('noCoins')+' ('+COST_TUBE+'🪙)');};
+ document.getElementById('rv-ad').onclick=()=>{flash('📺 ...');setTimeout(()=>{addExtraTube();G.reviveUsed=true;resumePlay();},1500);};
+ document.getElementById('rv-share').onclick=()=>{if(navigator.share){navigator.share({title:'Logic Tube Pro',text:i18n('sub'),url:location.href}).then(()=>{addExtraTube();G.reviveUsed=true;resumePlay();}).catch(()=>{addExtraTube();G.reviveUsed=true;resumePlay();});}else{try{navigator.clipboard.writeText(location.href);}catch{}flash('🔗 '+i18n('confirmShare'));setTimeout(()=>{addExtraTube();G.reviveUsed=true;resumePlay();},800);}};
  }
 }
+
 function doPause(){
  if(G.phase!=='playing')return;
  G.phase='paused';stopTimer();
- showOv('rgba(5,8,25,0.96)','<div style="text-align:center;padding:28px 20px;max-width:280px;width:90%;"><div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:20px;">⏸ Oyun Duraklatıldı</div><button id="ps-cont" class="btn btn-primary" style="width:100%;margin-bottom:10px;font-size:15px;">▶ Devam Et</button><button id="ps-menu" class="btn btn-ghost" style="width:100%;font-size:13px;">🏠 Ana Menü</button></div>');
+ showOv('rgba(5,8,25,0.96)','<div style="text-align:center;padding:28px 20px;max-width:280px;width:90%;"><div style="font-size:26px;font-weight:900;color:#fff;margin-bottom:20px;">'+i18n('paused')+'</div><button id="ps-cont" class="btn btn-primary" style="width:100%;margin-bottom:10px;font-size:15px;">'+i18n('resume')+'</button><button id="ps-menu" class="btn btn-ghost" style="width:100%;font-size:13px;">'+i18n('mainMenu')+'</button></div>');
  document.getElementById('ps-cont').onclick=()=>{G.phase='playing';hideOv();startTimer();};
  document.getElementById('ps-menu').onclick=()=>{G.phase='splash';hideOv();showSplash();};
 }
+
 function resumePlay(){G.phase='playing';hideOv();G.timerLeft=G.timerDur;document.getElementById('hud').style.display='block';startTimer();updateHUD();}
+
 function showLeaderboard(){
  const lb=getLB().slice(0,10),md=['🥇','🥈','🥉'];
- const rows=lb.length===0?'<div style="color:#223344;font-size:12px;padding:12px;">Henüz sıralama yok.</div>':lb.map((e,i)=>'<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(255,255,255,0.04);margin-bottom:4px;"><span style="font-size:15px;width:22px;text-align:center;">'+(md[i]||(i+1)+'.')+'</span><span style="flex:1;color:#cce;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+e.name+'</span><span style="color:#ffd700;font-size:12px;font-weight:700;">'+e.score.toLocaleString()+'</span><span style="color:#88aaff;font-size:10px;">Lv'+e.level+'</span></div>').join('');
- showOv('rgba(5,8,25,0.97)','<div style="text-align:center;padding:20px 16px;max-width:320px;width:94%;max-height:90vh;overflow-y:auto;"><div style="font-size:22px;font-weight:900;color:#ffd700;margin-bottom:12px;">🏆 '+i18n('lb')+'</div>'+rows+'<button id="lb-close" class="btn btn-ghost" style="margin-top:14px;font-size:13px;padding:10px 24px;min-height:44px;width:100%;">✕ Kapat</button></div>');
+ const rows=lb.length===0?'<div style="color:#223344;font-size:12px;padding:12px;">'+i18n('noLb')+'</div>':lb.map((e,i)=>'<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(255,255,255,0.04);margin-bottom:4px;"><span style="font-size:15px;width:22px;text-align:center;">'+(md[i]||(i+1)+'.')+'</span><span style="flex:1;color:#cce;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+e.name+'</span><span style="color:#ffd700;font-size:12px;font-weight:700;">'+e.score.toLocaleString()+'</span><span style="color:#88aaff;font-size:10px;">'+i18n('lvl')+' '+e.level+'</span></div>').join('');
+ showOv('rgba(5,8,25,0.97)','<div style="text-align:center;padding:20px 16px;max-width:320px;width:94%;max-height:90vh;overflow-y:auto;"><div style="font-size:22px;font-weight:900;color:#ffd700;margin-bottom:12px;">'+i18n('lb')+'</div>'+rows+'<button id="lb-close" class="btn btn-ghost" style="margin-top:14px;font-size:13px;padding:10px 24px;min-height:44px;width:100%;">✕ '+i18n('close')+'</button></div>');
  document.getElementById('lb-close').onclick=()=>{hideOv();if(G.phase==='splash'||G.phase==='menu')showSplash();};
 }
+
 function startLevel(){
  G.phase='playing';G.reviveUsed=false;G.extraTubeUsed=false;G.selected=null;G.history=[];G.particles=[];G.hintTube=-1;
  const{tubes,palette}=genLevel(G.level);
@@ -483,8 +546,7 @@ function resize(){
 }
 
 function init(){
- LANG=detectLang();
- try{const l=localStorage.getItem('ltp_lang');if(l&&LANGS[l])LANG=l;}catch{}
+ LANG='en';
  loadGame();
  G.canvas=document.getElementById('cv');
  G.ctx=G.canvas.getContext('2d');
